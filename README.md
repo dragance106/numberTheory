@@ -1,0 +1,3 @@
+A collection of programming projects used for a number theory course at AASU.
+Only the absolutely basic knowledge of Python is assummed, 
+so the code was not optimized in any way...
