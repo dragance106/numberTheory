@@ -32,7 +32,8 @@ st.markdown(
     """)
 
 st.text_input("Input the number *n*", key='n')
-if trial_division(st.session_state.n):
+n = int(st.session_state.n)
+if trial_division(n):
     st.write('* PRIME!')
 else:
     st.write('* NOT PRIME!')
