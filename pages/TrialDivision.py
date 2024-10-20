@@ -18,7 +18,7 @@ def trial_division(n):
             st.write(f'{n} is divisible by {p}!')
             return False, p
         else:
-            st.write(f'{n} is not divisibly by {p}')
+            st.write(f'{n} is not divisible by {p}')
 
     return True
 
@@ -39,6 +39,6 @@ else:
     st.write('* NOT PRIME!')
 
 
-if __name__=="__main__":
-    print(trial_division(101))
-    print(trial_division(121))
+# if __name__=="__main__":
+#     print(trial_division(101))
+#     print(trial_division(121))
