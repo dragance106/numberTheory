@@ -15,8 +15,8 @@ def trial_division(n):
     up_to = int(math.floor(math.sqrt(n)))
     for p in range(2, up_to+1):
         if n % p == 0:     # n is divisible by p without a remainder
-            st.write(f'{n} is divisible by {p}!')
-            return False, p
+            st.write(f'{n} is divisible by {p}')
+            return False
         else:
             st.write(f'{n} is not divisible by {p}')
 
@@ -31,7 +31,7 @@ st.markdown(
     whether it is prime by dividing *n* with all integers not exceeding its square root.
     """)
 
-st.text_input("Input the number *n*", key='n')
+st.number_input("Input the number *n*", key='n', value=2)
 n = int(st.session_state.n)
 if trial_division(n):
     st.write('* PRIME!')
