@@ -15,13 +15,27 @@ def trial_division(n):
     up_to = int(math.floor(math.sqrt(n)))
     for p in range(2, up_to+1):
         if n % p == 0:     # n is divisible by p without a remainder
+            st.write(f'{n} is divisible by {p}!')
             return False, p
+        else:
+            st.write(f'{n} is not divisibly by {p}')
 
     return True
 
 
-st.markdown("Trial division")
 st.sidebar.markdown("Trial division")
+st.write("# Trial division")
+st.markdown(
+    """
+    For the positive integer *n*, the trial division method determines
+    whether it is prime by dividing *n* with all integers not exceeding its square root.
+    """)
+
+st.text_input("Input the number *n*", key='n')
+if trial_division(st.session_state.n):
+    st.write('* PRIME!')
+else:
+    st.write('* NOT PRIME!')
 
 
 if __name__=="__main__":
