@@ -1,3 +1,4 @@
+import streamlit as st
 import math
 
 
@@ -25,6 +26,10 @@ def sieve(n):
         first_unmarked = j
 
     return [p for p in the_list if p>0]
+
+
+st.markdown("Sieve of Eratosthenese")
+st.sidebar.markdown("Sieve of Eratosthenes")
 
 
 if __name__=="__main__":

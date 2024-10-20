@@ -1,3 +1,4 @@
+import streamlit as st
 import math
 
 
@@ -17,6 +18,10 @@ def trial_division(n):
             return False, p
 
     return True
+
+
+st.markdown("Trial division")
+st.sidebar.markdown("Trial division")
 
 
 if __name__=="__main__":
