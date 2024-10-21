@@ -14,7 +14,7 @@ def sieve(n):
             if the_list[i] % the_list[first_unmarked] == 0:
                 the_list[i] = 0
 
-        st.write("Next prime is " + the_list[first_unmarked])
+        st.write("Next prime is " + str(the_list[first_unmarked]))
         st.write("Remaining list: " + str(the_list))
 
         # find the next unmarked entry
