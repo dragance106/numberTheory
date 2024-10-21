@@ -6,7 +6,7 @@ def gcd(a, b):
         st.write(f'gcd({a}, 0) = {a}')
         return a
     else:
-        st.write(f'gcd({a}, {b}) =               \# {a} = {a//b} * {b} + {a % b}')
+        st.write(f'gcd({a}, {b}) = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \# {a} = {a//b} * {b} + {a % b}')
         return gcd(b, a % b)
 
 
