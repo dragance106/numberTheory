@@ -14,14 +14,15 @@ def trial_division(n):
     return True
 
 
-st.write("# Trial division")
 st.markdown(
     """
+    # Trial division
+    
     For the positive integer *n*, the trial division method determines
     whether it is prime by dividing *n* with all integers not exceeding its square root.
     """)
 
-st.number_input("Input the number *n*", key='n', value=2)
+st.number_input("Input the number *n*", key='n', value=37)
 n = int(st.session_state.n)
 if trial_division(n):
     st.write('* PRIME!')
