@@ -3,10 +3,10 @@ import streamlit as st
 
 def gcd(a, b):
     if b == 0:
-        st.write(f'{a}')
+        st.write(f'gcd({a}, 0) = {a}')
         return a
     else:
-        st.write(f'gcd({a}, {b}) =')
+        st.write(f'gcd({a}, {b}) =               \# {a} = {a//b} * {b} + {a % b}')
         return gcd(b, a % b)
 
 
