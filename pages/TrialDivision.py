@@ -14,7 +14,6 @@ def trial_division(n):
     return True
 
 
-st.sidebar.markdown("Trial division")
 st.write("# Trial division")
 st.markdown(
     """
