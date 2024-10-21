@@ -6,8 +6,7 @@ def sieve(n):
     the_list = list(range(2, n+1))      # the list of all numbers from 2 to n
     first_unmarked = 0                  # the index of the first unmarked entry
 
-    st.write("Initial list")
-    st.write(the_list)
+    st.write("Initial list: " + str(the_list))
 
     while the_list[first_unmarked] <= int(math.floor(math.sqrt(n))):
         # mark all multiples of the first unmarked entry
@@ -15,8 +14,8 @@ def sieve(n):
             if the_list[i] % the_list[first_unmarked] == 0:
                 the_list[i] = 0
 
-        st.write("Next prime is ", the_list[first_unmarked])
-        st.write("Remaining list: ", the_list)
+        st.write("Next prime is " + the_list[first_unmarked])
+        st.write("Remaining list: " + str(the_list))
 
         # find the next unmarked entry
         j = first_unmarked+1
@@ -46,4 +45,4 @@ st.markdown(
 st.number_input("Input the number *n*", key='n', value=10)
 n = int(st.session_state.n)
 primes = sieve(n)
-st.write("Primes up to *n* are: ", primes)
+st.write("Primes up to *n* are: " + primes)
