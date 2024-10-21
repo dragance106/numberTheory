@@ -7,9 +7,11 @@ def gcd(a, b):
         return gcd(b, a % b)
 
 
-st.markdown("Euclid algorithm")
-st.sidebar.markdown("Euclid algorithm")
-
-
-if __name__=="__main__":
-    print(gcd(364105, 832139))
+st.markdown(
+    """
+    # Euclid's algorithm
+    
+    Finds the greatest common divisor of two numbers $a$ and $b$
+    by recursively using the relation $\gcd(a,b) = \gcd(b, a \mathrm{mod } b)$.
+    Recursion stops with $\gcd(a, 0) = a$.
+    """)
