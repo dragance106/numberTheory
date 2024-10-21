@@ -2,6 +2,22 @@ import streamlit as st
 import math
 
 
+st.sidebar.markdown("Trial division")
+st.write("# Trial division")
+st.markdown(
+    """
+    For the positive integer *n*, the trial division method determines
+    whether it is prime by dividing *n* with all integers not exceeding its square root.
+    """)
+
+st.number_input("Input the number *n*", key='n', value=2)
+n = int(st.session_state.n)
+if trial_division(n):
+    st.write('* PRIME!')
+else:
+    st.write('* NOT PRIME!')
+
+
 def trial_division(n):
     """
     Given a positive integer n, the method determines whether it is prime
@@ -21,24 +37,3 @@ def trial_division(n):
             st.write(f'{n} is not divisible by {p}')
 
     return True
-
-
-st.sidebar.markdown("Trial division")
-st.write("# Trial division")
-st.markdown(
-    """
-    For the positive integer *n*, the trial division method determines
-    whether it is prime by dividing *n* with all integers not exceeding its square root.
-    """)
-
-st.number_input("Input the number *n*", key='n', value=2)
-n = int(st.session_state.n)
-if trial_division(n):
-    st.write('* PRIME!')
-else:
-    st.write('* NOT PRIME!')
-
-
-# if __name__=="__main__":
-#     print(trial_division(101))
-#     print(trial_division(121))
