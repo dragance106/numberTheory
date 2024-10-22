@@ -55,5 +55,5 @@ lineso = ['| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |',
 
 do, xo, yo = extended_gcd(ao, bo, lineso)
 
-st.markdown(lineso)
+st.markdown(*lineso)
 
