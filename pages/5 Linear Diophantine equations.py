@@ -9,6 +9,7 @@ def print_extended_gcd(sto, a, b):
              + lineso
 
     sto.markdown(lineso)
+    return do, xo, yo
 
 
 def extended_gcd(a, b):
@@ -27,11 +28,19 @@ def extended_gcd(a, b):
         return d, x, y, lines
 
 
+def solve_lde(a, b, c):
+    st.markdown(f'Extended Euclid\'s algorithm to find gcd({a}, {b}):')
+    d, x0, y0 = print_extended_gcd(st, a, b)
+
+    if c % d != 0:
+        st.markdown(f'gcd({a},{b})={d} does not divide {c}, so **there are no solutions**')
+
+
 st.markdown(
     """
     # Linear Diophantine equations
     
-    Equation *ax* + *by* = *c* with known *integer* values *a*, *b* and *c*,
+    Equation *ax* + *by* = *c* with the known *integer* values *a*, *b* and *c*,
     for which the unknown solutions *x* and *y* should also be integers,
     is called the linear Diophantine equation. 
     It is solved through a simple observation:
@@ -45,9 +54,11 @@ st.markdown(
 
 st.number_input("Input the number *a*", key='a', value=30)
 st.number_input("Input the number *b*", key='b', value=24)
+st.number_input("Input the number *c*", key='c', value=3)
 
 ao = int(st.session_state.a)
 bo = int(st.session_state.b)
+co = int(st.session_state.c)
 
-print_extended_gcd(st, ao, bo)
+solve_lde(ao, bo, co)
 
