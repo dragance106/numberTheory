@@ -53,6 +53,8 @@ bo = int(st.session_state.b)
 
 do, xo, yo, lineso = extended_gcd(ao, bo)
 
+st.markdown(lineso)
+
 st.markdown("""| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |  
 | --- | --- | ---        | --- | --- | --- |
 """ + lineso)
