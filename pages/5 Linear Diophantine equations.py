@@ -33,7 +33,16 @@ def solve_lde(a, b, c):
     d, x0, y0 = print_extended_gcd(st, a, b)
 
     if c % d != 0:
-        st.markdown(f'gcd({a},{b})={d} does not divide {c}, so **there are no solutions**')
+        st.markdown(f'gcd({a}, {b})={d} does not divide {c}, so **there are no solutions**')
+    else:
+        x = (c//d)*x0
+        y = (c//d)*y0
+        st.markdown(f'gcd({a}, {b})={d}={a}&centerdot;{x0} + {b}&centerdot;{y0}')
+        st.markdown(f'{c}={c//d}&centerdot;{d}')
+        st.markdown(f'{c}={a}&centerdot;({c//d}&centerdot;{x0}) + {b}&centerdot;({c//d}&centerdot;{y0})')
+        st.markdown(f'{c}={a}&centerdot;{x} + {b}&centerdot;{y} is one particular solutions')
+        st.markdown(f'All solutions are of the form')
+        st.markdown(f'x={x} + ')
 
 
 st.markdown(
