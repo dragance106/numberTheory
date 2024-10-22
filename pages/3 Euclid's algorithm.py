@@ -1,4 +1,5 @@
 import streamlit as st
+import math
 
 
 def gcd(a, b):
@@ -22,8 +23,8 @@ st.markdown(
 st.number_input("Input the number *a*", key='a', value=30)
 st.number_input("Input the number *b*", key='b', value=24)
 
-ao = int(st.session_state.a)
-bo = int(st.session_state.b)
+ao = math.abs(int(st.session_state.a))
+bo = math.abs(int(st.session_state.b))
 
 d = gcd(ao, bo)
 
