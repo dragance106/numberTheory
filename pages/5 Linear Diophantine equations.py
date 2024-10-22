@@ -39,7 +39,7 @@ st.markdown(
     Hence if *d* does not divide *c*, there are no solutions.
     On the other hand, 
     if *d*|*c*, there will be infinitely many solutions,
-    which are derived from the basic linear combination *ax*~0+*by*~0=*d*
+    which are derived from the basic linear combination *ax~0*+*by~0*=*d*
     returned by the extended Euclid's algorithm.
     """)
 
