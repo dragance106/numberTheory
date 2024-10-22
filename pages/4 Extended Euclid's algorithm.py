@@ -4,7 +4,8 @@ import streamlit as st
 def print_extended_gcd(sto, a, b):
     do, xo, yo, lineso = extended_gcd(ao, bo)
 
-    sto.markdown("""| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |  \n
+    sto.markdown("""
+    | *a* | *b* | int(*a/b*) | *d* | *x* | *y* |
     | --- | --- | ---        | --- | --- | --- |""" + lineso)
 
 
