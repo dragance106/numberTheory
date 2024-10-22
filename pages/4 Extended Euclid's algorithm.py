@@ -1,18 +1,39 @@
 import streamlit as st
 
 
-def extended_gcd(a, b):
+def extended_gcd(a, b, cols):
     if b == 0:
-        st.markdown(f'| {a} | 0 |   | {a} | 1 | 0 |')
+        # st.markdown(f'| {a} | 0 |   | {a} | 1 | 0 |')
+        cols[0].write(a)
+        cols[1].write('0')
+        cols[2].write(' ')
+        cols[3].write(a)
+        cols[4].write('1')
+        cols[5].write('0')
+
         return a, 1, 0
     else:
-        st.markdown(f'| {a} | {b} | {a//b} |  |  |  |')
-        (d, x1, y1) = extended_gcd(b, a % b)
+        # st.markdown(f'| {a} | {b} | {a//b} |  |  |  |')
+        cols[0].write(a)
+        cols[1].write(b)
+        cols[2].write(a//b)
+        cols[3].write(' ')
+        cols[4].write(' ')
+        cols[5].write(' ')
+
+        (d, x1, y1) = extended_gcd(b, a % b, cols)
 
         x = y1
         y = x1 - (a//b)*y1
 
-        st.markdown(f'| {a} | {b} | {a//b} | {d} | {x} | {y} |')
+        # st.markdown(f'| {a} | {b} | {a//b} | {d} | {x} | {y} |')
+        cols[0].write(a)
+        cols[1].write(b)
+        cols[2].write(a//b)
+        cols[3].write(d)
+        cols[4].write(x)
+        cols[5].write(y)
+
         return d, x, y
 
 
@@ -50,14 +71,12 @@ st.number_input("Input the number *b*", key='b', value=24)
 ao = int(st.session_state.a)
 bo = int(st.session_state.b)
 
-st.markdown("""
-| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |
-| --- | --- | ---        | --- | --- | --- |
-""")
+colso = st.columns(6)
 
-st.markdown(
-"""| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |
-""")
+# st.markdown("""
+# | *a* | *b* | int(*a/b*) | *d* | *x* | *y* |
+# | --- | --- | ---        | --- | --- | --- |
+# """)
 
-do = extended_gcd(ao, bo)
+do = extended_gcd(ao, bo, colso)
 
