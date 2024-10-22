@@ -3,16 +3,16 @@ import streamlit as st
 
 def extended_gcd(a, b):
     if b == 0:
-        st.markdown(f'|{a}|0| |{a}|1|0|')
+        st.markdown(f'| {a} | 0 |   | {a} | 1 | 0 |')
         return a, 1, 0
     else:
-        st.markdown(f'|{a}|{b}|{a//b}| | | |')
+        st.markdown(f'| {a} | {b} | {a//b} |  |  |  |')
         (d, x1, y1) = extended_gcd(b, a % b)
 
         x = y1
         y = x1 - (a//b)*y1
 
-        st.markdown(f'|{a}|{b}|{a//b}|{d}|{x}|{y}|')
+        st.markdown(f'| {a} | {b} | {a//b} | {d} | {x} | {y} |')
         return d, x, y
 
 
@@ -50,8 +50,8 @@ st.number_input("Input the number *b*", key='b', value=24)
 ao = int(st.session_state.a)
 bo = int(st.session_state.b)
 
-st.markdown('| a | b | int(a/b) | d | x | y |')
-st.markdown('|---|---|----------|---|---|---|')
+st.markdown('| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |')
+st.markdown('| --- | --- | ---------- | --- | --- | --- |')
 
 do = extended_gcd(ao, bo)
 
