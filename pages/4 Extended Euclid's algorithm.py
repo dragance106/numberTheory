@@ -3,7 +3,7 @@ import streamlit as st
 
 def extended_gcd(a, b):
     if b == 0:
-        return a, 1, 0, f'| {a} | 0 |   | {a} | 1 | 0 |  \n'
+        return a, 1, 0, f'| {a} | 0 | &rarr; | {a} | 1 | 0 |  \n'
     else:
         d, x1, y1, lines = extended_gcd(b, a % b)
 
