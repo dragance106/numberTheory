@@ -40,7 +40,7 @@ def solve_mle(a, n, b):
                     f'so {a}&centerdot;({x0}) = {d} (mod {n}).')
         st.markdown(f'Since *b* = {b} = {b//d}&centerdot;*d*, we have that')
         st.markdown(f'{a}&centerdot;({b//d}&centerdot;({x0})) = {b} (mod {n})')
-        st.markdown(f'so that x0 = {x} is one particular solution of this modular equation.')
+        st.markdown(f'so that x0 = {x} is one particular solution of the modular equation {a}&centerdot;*x* = {b} (mod {n}).')
         if d==1:
             st.markdown(f'Since *d* = 1, this is the unique solution.')
         else:
