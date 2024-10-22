@@ -72,5 +72,5 @@ ao = int(st.session_state.a)
 bo = int(st.session_state.b)
 no = int(st.session_state.n)
 
-solve_mle(ao, n0, bo)
+solve_mle(ao, no, bo)
 
