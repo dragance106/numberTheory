@@ -50,10 +50,12 @@ st.number_input("Input the number *b*", key='b', value=24)
 ao = int(st.session_state.a)
 bo = int(st.session_state.b)
 
-lineso = ['| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |',
-          '| --- | --- | ---        | --- | --- | --- |']
+lineso = ["""
+| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |
+| --- | --- | ---        | --- | --- | --- |
+"""]
 
 do, xo, yo = extended_gcd(ao, bo, lineso)
 
-st.write_stream(lineso)
+st.write(lineso)
 
