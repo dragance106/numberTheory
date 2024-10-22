@@ -17,23 +17,26 @@ st.markdown(
     """
     # Extended Euclid's algorithm
 
-    It extends the standard Euclid's algorithm so that,
+    This algorithm extends the usual Euclid's algorithm so that,
     besides the value of the greatest common divisor *d*=gcd(*a*, *b*),
     it also returns the values of *x* and *y* such that *d* = *ax* + *by*.
+    
     The gcd is computed in the forward phase, 
     based on the relation gcd(*a*, *b*) = gcd(*b*, *a* mod *b*),
     as in the usual Euclid's algorithm.
+    
     However, 
     the values of *x* and *y* are computed in the backward phase.
-    starting with *d* = 1&centerdot;*d* + 0&centerdot;0
-    (valid when we reach the point gcd(*d*, 0) = *d*),
-    and then moving from
+    The algorithm starts with 
+    
+    *d* = 1&centerdot;*d* + 0&centerdot;0
+    
+    which is valid it reaches the point gcd(*d*, 0) = *d*,
+    and then at each step it moves backwards from
     
     *d* = *bx*' + (*a* mod *b*)*y*'
-    
-    d = bx' + (a - b[a/b])y'
-    
-    back to
+        
+    to
     
     *d* = *ay*' + *b*(*x*'-*y*'int(*a*/*b*))
     """)
