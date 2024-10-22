@@ -2,7 +2,7 @@ import streamlit as st
 
 
 def print_extended_gcd(sto, a, b):
-    do, xo, yo, lineso = extended_gcd(ao, bo)
+    do, xo, yo, lineso = extended_gcd(a, b)
 
     lineso = '| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |  \n' \
              + '| --- | --- | ---        | --- | --- | --- |  \n' \
