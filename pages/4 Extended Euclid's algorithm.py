@@ -3,15 +3,15 @@ import streamlit as st
 
 def extended_gcd(a, b, lines):
     if b == 0:
-        lines.append(f'| {a} | 0 |   | {a} | 1 | 0 |')
+        lines = lines + f'| {a} | 0 |   | {a} | 1 | 0 |  '
         return a, 1, 0
     else:
-        lines.append(f'| {a} | {b} | {a//b} |  |  |  |')
+        lines = lines + f'| {a} | {b} | {a//b} |  |  |  |  '
         (d, x1, y1) = extended_gcd(b, a % b, lines)
 
         x = y1
         y = x1 - (a//b)*y1
-        lines.append(f'| {a} | {b} | {a//b} | {d} | {x} | {y} |')
+        lines = lines + f'| {a} | {b} | {a//b} | {d} | {x} | {y} |  '
 
         return d, x, y
 
@@ -50,10 +50,8 @@ st.number_input("Input the number *b*", key='b', value=24)
 ao = int(st.session_state.a)
 bo = int(st.session_state.b)
 
-lineso = ["""
-| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |
-| --- | --- | ---        | --- | --- | --- |
-"""]
+lineso = """| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |  
+| --- | --- | ---        | --- | --- | --- |"""
 
 do, xo, yo = extended_gcd(ao, bo, lineso)
 
