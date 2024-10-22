@@ -61,5 +61,5 @@ bo = int(st.session_state.b)
 
 if bo>0:
     print_extended_gcd(st, ao, bo)
-else
+else:
     print_extended_gcd(st, ao, -bo)
