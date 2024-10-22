@@ -36,7 +36,7 @@ def solve_mle(a, n, b):
         st.markdown(f'gcd({a}, {n})={d} does not divide {b}, so **there are no solutions**')
     else:
         x = (b // d) * x0
-        st.markdown(f'Hence gcd({a}, {n}) = *d* = {d} = {a}&centerdot;({x0}) + {n}&centerdot;({y0}),' +
+        st.markdown(f'Hence gcd({a}, {n}) = *d* = {d} = {a}&centerdot;({x0}) + {n}&centerdot;({y0}), ' +
                     f'so {a}&centerdot;({x0}) = {d} (mod {n}).')
         st.markdown(f'Since *b* = {b} = {b//d}&centerdot;*d*, we have that')
         st.markdown(f'{a}&centerdot;({b//d}&centerdot;({x0})) = {b} (mod {n})')
