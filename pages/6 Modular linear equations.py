@@ -28,23 +28,22 @@ def extended_gcd(a, b):
         return d, x, y, lines
 
 
-def solve_mle(a, b, c):
-    st.markdown(f'Extended Euclid\'s algorithm to find gcd({a}, {b}):')
-    d, x0, y0 = print_extended_gcd(st, a, b)
+def solve_mle(a, n, b):
+    st.markdown(f'Extended Euclid\'s algorithm to find gcd({a}, {n}):')
+    d, x0, y0 = print_extended_gcd(st, a, n)
 
-    if c % d != 0:
-        st.markdown(f'gcd({a}, {b})={d} does not divide {c}, so **there are no solutions**')
+    if b % d != 0:
+        st.markdown(f'gcd({a}, {n})={d} does not divide {b}, so **there are no solutions**')
     else:
-        x = (c // d) * x0
-        y = (c // d) * y0
-        st.markdown(f'Hence gcd({a}, {b}) = *d* = {d} = {a}&centerdot;({x0}) + {b}&centerdot;({y0}).')
-        st.markdown(f'Since *c* = {c} = {c // d}&centerdot;({d}) for c/d={c // d} we have that')
-        st.markdown(f'{c} = {a}&centerdot;({c // d}&centerdot;({x0})) + {b}&centerdot;({c // d}&centerdot;({y0}))' +
-                    f' = {a}&centerdot;({x}) + {b}&centerdot;({y}) is one particular solution.')
+        x = (b // d) * x0
+        st.markdown(f'Hence gcd({a}, {n}) = *d* = {d} = {a}&centerdot;({x0}) + {n}&centerdot;({y0}),' +
+                    f'so {a}&centerdot;({x0}) = {d} (mod {n}).')
+        st.markdown(f'Since *b* = {b} = {b//d}&centerdot;*d*, we have that')
+        st.markdown(f'{a}&centerdot;({b//d}&centerdot;({x0})) = {b} (mod {n})')
+        st.markdown(f'so that x0 = {x} is one particular solution of this modular equation.')
         st.markdown(f'All solutions are of the form')
-        st.markdown(f'*x* = {x} + *bk*/*d* = {x} + {b // d}&centerdot;*k*')
-        st.markdown(f'*y* = {y} - *ak*/*d* = {y} - {a // d}&centerdot;*k*')
-        st.markdown(f'for arbitrary integer *k*.')
+        st.markdown(f'*x* = {x} + *nk*/*d* = {x} + {n//d}&centerdot;*k*')
+        st.markdown(f'for integers *k*=0,1,...,*d*-1.')
 
 
 st.markdown(
@@ -60,7 +59,7 @@ st.markdown(
     Then if *d* does not divide *b*, there are no solutions,
     while if *d* divides *b*,
     one particular solution is given by *a*(*x*0&centerdot;*b*/*d*) = *b* (mod *n*),
-    and all other solutions are of the form *x*0&centerdot;*b*/*d* + *k*&centerdot;*n*/*d*
+    and all other solutions are of the form (*x*0&centerdot;*b*/*d*) + *k*&centerdot;*n*/*d*
     for *k*=1,...,*d*-1.
     """)
 
