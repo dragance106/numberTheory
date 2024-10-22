@@ -57,5 +57,5 @@ lineso = ["""
 
 do, xo, yo = extended_gcd(ao, bo, lineso)
 
-st.write(lineso)
+st.write_stream(lineso)
 
