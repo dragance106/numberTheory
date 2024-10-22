@@ -55,8 +55,8 @@ st.markdown(
     is obviously closely related to the linear Diophantine equation *ax* + *ny* = *b*,
     so it is solved in a similar fashion.
     First, 
-    use the extended Euclid's algorithm to determine *d* = gcd(*a*, *n)
-    and the linear combination *d* = *ax*0 + *by*0.
+    use the extended Euclid's algorithm to determine *d* = gcd(*a*, *n*)
+    and the linear combination *d* = *ax*0 + *ny*0.
     Then if *d* does not divide *b*, there are no solutions,
     while if *d* divides *b*,
     one particular solution is given by *a*(*x*0&centerdot;*b*/*d*) = *b* (mod *n*),
