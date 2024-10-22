@@ -50,10 +50,8 @@ st.number_input("Input the number *b*", key='b', value=24)
 ao = int(st.session_state.a)
 bo = int(st.session_state.b)
 
-st.markdown("""
-    | *a* | *b* | int(*a/b*) | *d* | *x* | *y* |
-    | :--- | :--- | :---------- | :--- | :--- | :--- |
-    """)
+st.markdown("""| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |
+| :--- | :--- | :---------- | :--- | :--- | :--- |""")
 
 do = extended_gcd(ao, bo)
 
