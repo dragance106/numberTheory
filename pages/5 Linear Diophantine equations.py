@@ -38,11 +38,13 @@ def solve_lde(a, b, c):
         x = (c//d)*x0
         y = (c//d)*y0
         st.markdown(f'Hence gcd({a}, {b}) = *d* = {d} = {a}&centerdot;({x0}) + {b}&centerdot;({y0}).')
-        st.markdown(f'Since *c* = {c} = {c//d}&centerdot;{d} for c/d={c//d} we have that')
+        st.markdown(f'Since *c* = {c} = {c//d}&centerdot;({d}) for c/d={c//d} we have that')
         st.markdown(f'{c} = {a}&centerdot;({c//d}&centerdot;({x0})) + {b}&centerdot;({c//d}&centerdot;({y0}))' +
                     f' = {a}&centerdot;({x}) + {b}&centerdot;({y}) is one particular solution.')
         st.markdown(f'All solutions are of the form')
-        st.markdown(f'x={x} + ')
+        st.markdown(f'*x* = {x} + *bk*/*d* = {x} + {b//d}&centerdot;*k*')
+        st.markdown(f'*y* = {y} - *ak*/*d* = {y} - {a//d}&centerdot;*k*')
+        st.markdown(f'for arbitrary integer *k*.')
 
 
 st.markdown(
