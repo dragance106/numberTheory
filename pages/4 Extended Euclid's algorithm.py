@@ -1,6 +1,13 @@
 import streamlit as st
 
 
+def print_extended_gcd(sto, a, b):
+    do, xo, yo, lineso = extended_gcd(ao, bo)
+
+    sto.markdown("""| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |  \n
+    | --- | --- | ---        | --- | --- | --- |""" + lineso)
+
+
 def extended_gcd(a, b):
     if b == 0:
         return a, 1, 0, f'| {a} | 0 | &xrarr; | {a} | 1 | 0 |  \n'
@@ -49,9 +56,4 @@ st.number_input("Input the number *b*", key='b', value=24)
 ao = int(st.session_state.a)
 bo = int(st.session_state.b)
 
-do, xo, yo, lineso = extended_gcd(ao, bo)
-
-st.markdown("""| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |
-| --- | --- | ---        | --- | --- | --- |
-""" + lineso)
-
+print_extended_gcd(st, ao, bo)
