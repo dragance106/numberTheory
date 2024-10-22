@@ -61,6 +61,9 @@ st.markdown(
     one particular solution is given by *a*(*x*0&centerdot;*b*/*d*) = *b* (mod *n*),
     and all other solutions are of the form (*x*0&centerdot;*b*/*d*) + *k*&centerdot;*n*/*d*
     for *k*=1,...,*d*-1.
+    
+    This way we can also find the multiplicative inverse of *a* modulo *n*
+    by solving the equation *ax* = 1 (mod *n*).
     """)
 
 st.number_input("Input the number *a*", key='a', value=5)
