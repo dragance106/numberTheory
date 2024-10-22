@@ -3,16 +3,16 @@ import streamlit as st
 
 def extended_gcd(a, b):
     if b == 0:
-        return a, 1, 0, f'| {a} | 0 |   | {a} | 1 | 0 |  '
+        return a, 1, 0, f'| {a} | 0 |   | {a} | 1 | 0 | \n'
     else:
         d, x1, y1, lines = extended_gcd(b, a % b)
 
         x = y1
         y = x1 - (a//b)*y1
 
-        lines = f'| {a} | {b} | {a//b} |  |  |  |  ' \
+        lines = f'| {a} | {b} | {a//b} |  |  |  | \n' \
                 + lines \
-                + f'| {a} | {b} | {a//b} | {d} | {x} | {y} |  '
+                + f'| {a} | {b} | {a//b} | {d} | {x} | {y} | \n'
 
         return d, x, y, lines
 
