@@ -3,17 +3,14 @@ import streamlit as st
 
 def extended_gcd(a, b, lines):
     if b == 0:
-        lines = lines + f'| {a} | 0 |   | {a} | 1 | 0 |  '
-        return a, 1, 0
+        return a, 1, 0, lines + f'| {a} | 0 |   | {a} | 1 | 0 |  '
     else:
-        lines = lines + f'| {a} | {b} | {a//b} |  |  |  |  '
-        (d, x1, y1) = extended_gcd(b, a % b, lines)
+        (d, x1, y1) = extended_gcd(b, a % b, lines + f'| {a} | {b} | {a//b} |  |  |  |  ')
 
         x = y1
         y = x1 - (a//b)*y1
-        lines = lines + f'| {a} | {b} | {a//b} | {d} | {x} | {y} |  '
 
-        return d, x, y
+        return d, x, y, lines + f'| {a} | {b} | {a//b} | {d} | {x} | {y} |  '
 
 
 st.markdown(
@@ -50,10 +47,9 @@ st.number_input("Input the number *b*", key='b', value=24)
 ao = int(st.session_state.a)
 bo = int(st.session_state.b)
 
-lineso = """| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |  
-| --- | --- | ---        | --- | --- | --- |"""
+do, xo, yo, lineso = extended_gcd(ao, bo)
 
-do, xo, yo = extended_gcd(ao, bo, lineso)
-
-st.markdown(lineso)
+st.markdown("""| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |  
+| --- | --- | ---        | --- | --- | --- |
+""" + lineso)
 
