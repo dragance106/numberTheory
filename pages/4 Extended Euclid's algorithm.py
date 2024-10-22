@@ -55,7 +55,9 @@ st.markdown("""
 | --- | --- | ---        | --- | --- | --- |
 """)
 
-st.markdown('| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |')
+st.markdown(
+"""| *a* | *b* | int(*a/b*) | *d* | *x* | *y* |
+""")
 
 do = extended_gcd(ao, bo)
 
