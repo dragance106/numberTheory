@@ -4,16 +4,17 @@ import streamlit as st
 def fast_exp(a, b, n):
     if b == 1:
         st.write(f'{a}^1 = {a} (mod {n})')
+        return a % n
     elif b % 2 == 1:        # b is odd
         st.write(f'{b} &xrarr; {b-1}')
         r = fast_exp(a, b-1, n)
-        st.write(f'{a}^{b} = {a}&centerdot;{a}^{b-1} = {a}&centerdot;{r} = {(a*r)} (mod {n})')
-        return a*r
+        st.write(f'{a}^{b} = {a}&centerdot;{a}^{b-1} = {a}&centerdot;{r} = {a*r} (mod {n})')
+        return (a*r) % n
     else:                   # b is even
         st.write(f'{b} &xrarr; {b//2}')
         r = fast_exp(a, b//2, n)
-        st.write(f'{a}^{b} = ({a}^{b//2})^2 = {r}^2 = {(r*r)} (mod {n})')
-        return r*r
+        st.write(f'{a}^{b} = ({a}^{b//2})^2 = {r}^2 = {r*r} (mod {n})')
+        return (r*r) % n
 
 
 st.markdown(
