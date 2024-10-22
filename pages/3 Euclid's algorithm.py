@@ -17,6 +17,8 @@ st.markdown(
     Finds the greatest common divisor of two numbers *a* and *b*
     by recursively using the relation gcd(*a*, *b*) = gcd(*b*, *a* mod *b*).
     Recursion stops with gcd(*d*, 0) = *d*.
+    
+    If the arguments are negative, gcd is applied to their absolute values.
     """)
 
 st.number_input("Input the number *a*", key='a', value=30)

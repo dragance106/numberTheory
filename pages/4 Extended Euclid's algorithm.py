@@ -59,4 +59,7 @@ st.number_input("Input the number *b*", key='b', value=24)
 ao = int(st.session_state.a)
 bo = int(st.session_state.b)
 
-print_extended_gcd(st, ao, bo)
+if bo>0:
+    print_extended_gcd(st, ao, bo)
+else
+    print_extended_gcd(st, ao, -bo)
