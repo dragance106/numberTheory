@@ -43,7 +43,7 @@ def solve_lde(a, b, c):
                     f' = {a}&centerdot;({x}) + {b}&centerdot;({y}) is one particular solution.')
         st.markdown(f'All solutions are of the form')
         st.markdown(f'*x* = {x} + *bk*/*d* = {x} + {b//d}&centerdot;*k*')
-        st.markdown(f'*y* = {y} - *ak*/*d* = {y} + {a//d}&centerdot;*k*')
+        st.markdown(f'*y* = {y} - *ak*/*d* = {y} - {a//d}&centerdot;*k*')
         st.markdown(f'for arbitrary integer *k*.')
 
 
