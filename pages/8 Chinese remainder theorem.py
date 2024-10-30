@@ -46,8 +46,9 @@ st.markdown(
 st.number_input("Input the number *k*", key='k', value=2)
 ko = int(st.session_state.k)
 
-ainput_values = [st.number_input(f'*a*{i}', key=f'a{i}') for i in range(ko)]
-ninput_values = [st.number_input(f'*n*{i}', key=f'n{i}') for i in range(ko)]
+for i in range(ko):
+    st.number_input(f'*a*{i}', key=f'a{i}', value=1)
+    st.number_input(f'*n*{i}', key=f'n{i}', value=1)
 
 
 
