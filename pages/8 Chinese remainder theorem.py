@@ -5,7 +5,7 @@ from functions import gcd
 
 def crt(st, k, a_values, n_values):
     for i in range(k):
-        for j in range(j+1, k):
+        for j in range(i+1, k):
             d = gcd(n_values[i], n_values[j])
             if d > 1:
                 st.markdown(f'Numbers n{i} and n{j} are not relatively prime - their gcd is {d}.')
