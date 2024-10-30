@@ -72,5 +72,5 @@ with c1:
 with c2:
     no_values = [st.number_input(f'*n*{i}', key=f'n{i}', value=1) for i in range(ko)]
 
-st.markdown("Solution is x=" + str(crt(k, ao_values, no_values)))
+st.markdown("Solution is x=" + str(crt(ko, ao_values, no_values)))
 
