@@ -41,7 +41,7 @@ def chinese_remainder_theorem(st, k, a_values, n_values):
             s1 = s1 + ' + '
             s2 = s2 + ' + '
 
-    st.markdown('Finally:')
+    st.markdown(f'Finally:')
     st.markdown(f'The solution is x={s1}={s2}={x} mod *n*={n}.')
 
 
