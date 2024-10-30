@@ -1,13 +1,27 @@
 import streamlit as st
 from functions import multiplicative_inverse
+from functions import gcd
 
 
-def crt(k, a_values, n_values):
+def crt(st, k, a_values, n_values):
+    for i in range(k):
+        for j in range(j+1, k):
+            d = gcd(n_values[i], n_values[j])
+            if d > 1:
+                st.markdown(f'Numbers n{i} and n{j} are not relatively prime - their gcd is {d}.')
+                return None
+
     n = 1
     for i in range(k):
         n = n * n_values[i]
 
+    st.markdown("The product of all ni values is: " + str(n))
+
     m = [n//ni for ni in n_values]
+
+    for i in range(k):
+        st.markdown("The product of all ni values other than n{i} is: " + str(m[i]))
+
     m_inverse = [multiplicative_inverse(m[i], n_values[i]) for i in range(k)]
 
     c = [(m[i]*m_inverse[i]) % n for i in range(k)]
@@ -72,5 +86,9 @@ with c1:
 with c2:
     no_values = [st.number_input(f'*n*{i}', key=f'n{i}', value=1) for i in range(ko)]
 
-st.markdown("Solution is x=" + str(crt(ko, ao_values, no_values)))
+x = crt(st, ko, ao_values, no_values)
+if x is None:
+    st.markdown("There is no solution.")
+else:
+    st.markdown("Solution is x=" + str(x))
 
