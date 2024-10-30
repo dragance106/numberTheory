@@ -59,8 +59,8 @@ with c2:
 #     c2.number_input(f'*n*{i}', key=f'n{i}', value=1)
 
 st.markdown("Values entered are: ")
-st.markdown("a values: " + a_values)
-st.markdown("n values: " + n_values)
+st.markdown("a values: " + str(a_values))
+st.markdown("n values: " + str(n_values))
 
 # a = [int(st.session_state.a) for i in range(1, ko+1)]
 # n = [int(st.session_state.n) for i in range(1, ko+1)]
