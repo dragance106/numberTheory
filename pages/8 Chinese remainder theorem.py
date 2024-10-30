@@ -19,7 +19,7 @@ st.markdown(
     that the solution is wanted modulo *n*=*n*1&centerdot;*n*2&centerdot;...&centerdot;*nk*.
     
     The main point is to determine the numbers *c*1, *c*2, ..., *ck* such that
-    for *ci* we have 
+    for each *ci* we have 
     
     *ci* = 1 (mod *ni*)
     
@@ -33,7 +33,10 @@ st.markdown(
     
     is a solution of the above system.
     
-    Each number *ci* is obtained by taking the product *mi*=*n*1&centerdot;*n(i-1)n(i+1)*&\centerdot;*nk*
+    Each number *ci* is obtained by taking the product 
+    
+    *mi*=*n1*&centerdot;...&centerdot;*n*(*i*-1)&centerdot;*n*(*i*+1)&centerdot;...&centerdot;*nk*
+    
     of all moduli except for *ni*, determining the multiplicative inverse *m'i* of *mi* modulo *ni*,
     and setting
     
