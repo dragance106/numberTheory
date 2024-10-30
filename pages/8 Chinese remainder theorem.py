@@ -1,4 +1,22 @@
 import streamlit as st
+from functions import multiplicative_inverse
+
+
+def crt(k, a_values, n_values):
+    n = 1
+    for i in range(k):
+        n = n * n_values[i]
+
+    m = [n//ni for ni in n_values]
+    m_inverse = [multiplicative_inverse(m[i], n_values[i]) for i in range(k)]
+
+    c = [(m[i]*m_inverse[i]) % n for i in range(k)]
+
+    x = 0
+    for i in range(k):
+        x = x + a_values[i]*c[i]
+
+    return(x)
 
 
 st.markdown(
@@ -49,12 +67,10 @@ ko = int(st.session_state.k)
 c1, c2 = st.columns(2)
 
 with c1:
-    a_values = [st.number_input(f'*a*{i}', key=f'a{i}', value=1) for i in range(ko)]
+    ao_values = [st.number_input(f'*a*{i}', key=f'a{i}', value=1) for i in range(ko)]
 
 with c2:
-    n_values = [st.number_input(f'*n*{i}', key=f'n{i}', value=1) for i in range(ko)]
+    no_values = [st.number_input(f'*n*{i}', key=f'n{i}', value=1) for i in range(ko)]
 
-st.markdown("Values entered are: ")
-st.markdown("a values: " + str(a_values))
-st.markdown("n values: " + str(n_values))
+st.markdown("Solution is x=" + str(crt(k, ao_values, no_values)))
 
