@@ -14,17 +14,16 @@ def crt(st, k, a_values, n_values):
     n = 1
     for i in range(k):
         n = n * n_values[i]
-
-    st.markdown("The product of all ni values is: " + str(n))
+    st.markdown(f'The product of all ni values is {n}')
 
     m = [n//ni for ni in n_values]
+    m_inverse = [multiplicative_inverse(m[i], n_values[i]) for i in range(k)]
+    c = [(m[i]*m_inverse[i]) % n for i in range(k)]
 
     for i in range(k):
-        st.markdown("The product of all ni values other than n{i} is: " + str(m[i]))
-
-    m_inverse = [multiplicative_inverse(m[i], n_values[i]) for i in range(k)]
-
-    c = [(m[i]*m_inverse[i]) % n for i in range(k)]
+        st.markdown(f'The product of all ni values other than n{i} is {m[i]}.')
+        st.markdown(f'The multiplicative inverse m\'{i} of m{i} mod n{i} is {m_inverse[i]}.')
+        st.markdown(f'The coefficient c{i}=(m\'{i}&centerdot;m{i}) mod n{i} is {c[i]}.')
 
     x = 0
     for i in range(k):
