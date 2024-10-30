@@ -76,14 +76,11 @@ st.markdown(
     
     is a solution of the above system (which is also unique modulo n).
     
-    Each number *ci* is obtained by taking the product 
-    
-    *mi*=*n1*&centerdot;...&centerdot;*n*(*i*-1)&centerdot;*n*(*i*+1)&centerdot;...&centerdot;*nk*
-    
-    of all moduli except for *ni*, determining the multiplicative inverse *m'i* of *mi* modulo *ni*,
+    Each number *ci* is obtained by taking the product *Ni* = *n*/*ni* of all moduli except for *ni*, 
+    determining the multiplicative inverse *Mi* of *Ni* modulo *ni*,
     and setting
     
-    *ci* = *mi*&centerdot;*m'i* (mod *n*).
+    *ci* = *Mi*&centerdot;*Ni* (mod *n*).
     """)
 
 st.number_input("Input the number *k*", key='k', value=2)
