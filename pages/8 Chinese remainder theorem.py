@@ -46,9 +46,11 @@ st.markdown(
 st.number_input("Input the number *k*", key='k', value=2)
 ko = int(st.session_state.k)
 
+c1, c2 = st.columns(2)
+
 for i in range(ko):
-    st.number_input(f'*a*{i}', key=f'a{i}', value=1)
-    st.number_input(f'*n*{i}', key=f'n{i}', value=1)
+    c1.number_input(f'*a*{i}', key=f'a{i}', value=1)
+    c2.number_input(f'*n*{i}', key=f'n{i}', value=1)
 
 
 
