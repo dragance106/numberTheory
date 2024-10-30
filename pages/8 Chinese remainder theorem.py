@@ -33,7 +33,7 @@ def chinese_remainder_theorem(st, k, a_values, n_values):
     x = 0
     s = ''
     for i in range(k):
-        x = x + a_values[i]*c[i]
+        x = (x + a_values[i]*c[i]) % n
         s = s + f'*a*{i}&centerdot;*c*{i}'
         if i!=k-1:
             s = s + '+'
