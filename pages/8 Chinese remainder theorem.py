@@ -43,11 +43,11 @@ st.markdown(
     *ci* = *mi*&centerdot;*m'i* (mod *n*).
     """)
 
-st.number_input("Input the number *a*", key='a', value=2)
-st.number_input("Input the number *b*", key='b', value=1001)
-st.number_input("Input the number *n*", key='n', value=100)
+st.number_input("Input the number *k*", key='k', value=2)
+ko = int(st.session_state.k)
 
-ao = int(st.session_state.a)
-bo = int(st.session_state.b)
-no = int(st.session_state.n)
+ainput_values = [st.number_input(f'*a*{i}', key=f'a{i}') for i in range(ko)]
+ninput_values = [st.number_input(f'*n*{i}', key=f'n{i}') for i in range(ko)]
+
+
 
