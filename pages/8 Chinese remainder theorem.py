@@ -28,7 +28,7 @@ def chinese_remainder_theorem(st, k, a_values, n_values):
         st.markdown(f'For *i*={i}:')
         st.markdown(f'The product *m*{i} of all *ni* values other than *n*{i} is *m*{i}={n}/{n_values[i]}={m[i]}.')
         st.markdown(f'The multiplicative inverse *m*\'{i} of *m*{i}={m[i]} mod *n*{i}={n_values[i]} is {m_inverse[i]}.')
-        st.markdown(f'The coefficient *c*{i}=(*m*\'{i}&centerdot;*m*{i}) mod *n*{i} is {c[i]}.')
+        st.markdown(f'The coefficient *c*{i}=*m*\'{i}&centerdot;*m*{i}={m_inverse[i]}&centerdot;{m[i]} mod *n* is {c[i]}.')
 
     x = 0
     for i in range(k):
