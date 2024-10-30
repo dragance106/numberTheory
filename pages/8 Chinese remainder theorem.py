@@ -3,18 +3,22 @@ from functions import multiplicative_inverse
 from functions import gcd
 
 
-def crt(st, k, a_values, n_values):
+def chinese_remainder_theorem(st, k, a_values, n_values):
     for i in range(k):
         for j in range(i+1, k):
             d = gcd(n_values[i], n_values[j])
             if d > 1:
                 st.markdown(f'Numbers n{i} and n{j} are not relatively prime - their gcd is {d}.')
-                return None
+                st.markdown(f'There are no solutions.')
 
     n = 1
+    s = ''
     for i in range(k):
         n = n * n_values[i]
-    st.markdown(f'The product *n* of all *ni* values is {n}')
+        s = s + str(n_values[i])
+        if i!=k-1:
+            s = s + '&centerdot;'
+    st.markdown(f'The product *n* of all *ni* values is *n*={s}={n}')
 
     m = [n//ni for ni in n_values]
     m_inverse = [multiplicative_inverse(m[i], n_values[i]) for i in range(k)]
@@ -62,7 +66,7 @@ st.markdown(
     
     *x* = *a*1&centerdot;*c*1 + *a*2&centerdot;*c*2 + ... + *ak*&centerdot;*ck*
     
-    is a solution of the above system.
+    is a solution of the above system (which is also unique modulo n).
     
     Each number *ci* is obtained by taking the product 
     
@@ -87,9 +91,5 @@ with c2:
     no_values = [st.number_input(f'*n*{i}', key=f'n{i}', value=1) for i in range(ko)]
     no_values = [int(n) for n in no_values]
 
-x = crt(st, ko, ao_values, no_values)
-if x is None:
-    st.markdown("There is no solution.")
-else:
-    st.markdown("Solution is x=" + str(x))
+chinese_remainder_theorem(st, ko, ao_values, no_values)
 
