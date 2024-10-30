@@ -82,9 +82,11 @@ c1, c2 = st.columns(2)
 
 with c1:
     ao_values = [st.number_input(f'*a*{i}', key=f'a{i}', value=1) for i in range(ko)]
+    ao_values = [int(a) for a in ao_values]
 
 with c2:
     no_values = [st.number_input(f'*n*{i}', key=f'n{i}', value=1) for i in range(ko)]
+    no_values = [int(n) for n in no_values]
 
 x = crt(st, ko, ao_values, no_values)
 if x is None:
