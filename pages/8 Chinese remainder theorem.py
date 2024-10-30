@@ -31,14 +31,17 @@ def chinese_remainder_theorem(st, k, a_values, n_values):
         st.markdown(f'The coefficient *c*{i}=*m*\'{i}&centerdot;*m*{i}=({m_inverse[i]})&centerdot;{m[i]} mod *n* is {c[i]}.')
 
     x = 0
-    s = ''
+    s1 = ''
+    s2 = ''
     for i in range(k):
         x = (x + a_values[i]*c[i]) % n
-        s = s + f'*a*{i}&centerdot;*c*{i}'
-        if i!=k-1:
-            s = s + '+'
+        s1 = s1 + f'*a*{i}&centerdot;*c*{i}'
+        s2 = s2 + f'{a_values[i]}&centerdot;{c[i]}'
+        if i != k-1:
+            s1 = s1 + ' + '
+            s2 = s2 + ' + '
 
-    st.markdown(f'The solution is x={s}={x} mod *n*={n}.')
+    st.markdown(f'The solution is x={s1}={s2}={x} mod *n*={n}.')
 
 
 st.markdown(
