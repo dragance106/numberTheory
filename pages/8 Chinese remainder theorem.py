@@ -13,12 +13,12 @@ st.markdown(
 
     ...
 
-    *x* = *a*k (mod *n*k)
+    *x* = *ak* (mod *nk*)
 
-    provided the moduli *n*1, *n*2, ..., *n*k are pairwise relatively prime, and
-    that the solution is wanted modulo *n*=*n*1&centerdot;*n*2&centerdot;...&centerdot;*n*k.
+    provided the moduli *n*1, *n*2, ..., *nk* are pairwise relatively prime, and
+    that the solution is wanted modulo *n*=*n*1&centerdot;*n*2&centerdot;...&centerdot;*nk*.
     
-    The main point is to determine the numbers *c*1, *c*2, ..., *c*k such that
+    The main point is to determine the numbers *c*1, *c*2, ..., *ck* such that
     for *ci* we have 
     
     *ci* = 1 (mod *ni*)
@@ -27,7 +27,17 @@ st.markdown(
     
     *ci* = 0 (mod *nj*)
     
-    for any *j* different from *i*. 
+    for any *j* different from *i*. Then it is obvious that  
+    
+    *x* = *a*1&centerdot;*c*1 + *a*2&centerdot;*c*2 + ... + *ak*&centerdot;*ck*
+    
+    is a solution of the above system.
+    
+    Each number *ci* is obtained by taking the product *mi*=*n*1&centerdot;*n(i-1)n(i+1)*&\centerdot;*nk*
+    of all moduli except for *ni*, determining the multiplicative inverse *m'i* of *mi* modulo *ni*,
+    and setting
+    
+    *ci* = *mi*&centerdot;*m'i* (mod *n*).
     """)
 
 st.number_input("Input the number *a*", key='a', value=2)
