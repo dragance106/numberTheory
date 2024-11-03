@@ -10,6 +10,7 @@ def chinese_remainder_theorem(st, k, a_values, n_values):
             if d > 1:
                 st.markdown(f'Numbers n{i} and n{j} are not relatively prime - their gcd is {d}.')
                 st.markdown(f'There are no solutions.')
+                return
 
     n = 1
     s = ''
