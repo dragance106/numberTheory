@@ -41,6 +41,9 @@ st.markdown(
     If $a$ is relatively prime to $n$,
     the first such repetition will necessarily be $a^k=a^0=1$.
     Smallest such $k$ is then called the *order* of $a$ mod $n$.
+    In such case we also have *Euler's theorem* which states
+    that necessarily $a^{\phi(n)}=1$ mod $n$,
+    implying that the order of $a$ will be a divisor of $\phi(n)$.
     """)
 
 st.number_input("Input the number $a$", key='a', value=3)
