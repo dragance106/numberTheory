@@ -10,7 +10,7 @@ st.markdown(
     
     This function can be computed according to the formula
     
-    $$\\phi(n) = n \\prod_{\\substack{p\\mbox{ is prime, }\\\\p|n} \\left(1-\\frac1p\\right).$$
+    $$\\phi(n) = n \\prod_{\\substack{p\\mbox{ is prime, }\\p|n} \\left(1-\\frac1p\\right).$$
     
     It is multiplicative, 
     meaning that $\phi(mn)=\phi(m)\phi(n)$ for relatively prime $m$ and $n$.
