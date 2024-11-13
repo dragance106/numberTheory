@@ -24,7 +24,7 @@ def extended_gcd(a, b):
 def multiplicative_inverse(a, n):
     d, x0, y0 = extended_gcd(a, n)
 
-    if d!=1:
+    if d != 1:
         return 0
     else:
         return x0
