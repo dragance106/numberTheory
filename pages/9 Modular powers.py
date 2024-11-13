@@ -3,13 +3,19 @@ import streamlit as st
 
 def power_list(a, n):
     prd = 1
-    powers = [prd]
+    powers = []
 
     for k in range(n):
-        st.markdown(f'{a}^{{{k}}} mod {n}={prd}')
+        if prd in powers:
+            l = powers.index(prd)
+            st.markdown(f'The first repetition is ${a}^{{{k}}}={a}^{{{l}}}$ mod {n}')
+            break
+        else:
+            powers.append(prd)
+            st.markdown(f'${a}^{{{k}}}$ mod {n} = {prd}')
+
         prd = (prd*a) % n
 
-        powers.append(prd)
 
 
 
