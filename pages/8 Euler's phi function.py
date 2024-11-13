@@ -6,7 +6,7 @@ def phi_list(n):
     for a in range(1, n):
         d = gcd(a, n)
         if d > 1:
-            st.markdown(f'~~{d} is not in $Z_n^*$ since gcd({a}, {n})={d}>1')
+            st.markdown(f'~~{d} is not in $Z_n^*$ since gcd({a}, {n})={d}>1~~')
         else:
             st.markdown(f'{d} is in $Z_n^*$')
 
