@@ -1,4 +1,5 @@
 import streamlit as st
+from functions import gcd
 
 
 def power_list(a, n):
@@ -11,6 +12,13 @@ def power_list(a, n):
         if prd in powers:
             l = powers.index(prd)
             st.markdown(f'The first repetition is ${a}^{{{k}}}={a}^{{{l}}}$ mod {n}')
+
+            if gcd(a, n) == 1:
+                st.markdown(f"""Since {a} and {n} are relatively prime,
+                                the order of {a} mod {n} is equal to {k}.""")
+                if k == n-1:
+                    st.markdown(f'Hence {a} is a primitive root mod {n}.')
+
             break
         else:
             powers.append(prd)
