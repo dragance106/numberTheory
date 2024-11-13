@@ -2,7 +2,15 @@ import streamlit as st
 
 
 def power_list(a, n):
-    powers = []
+    prd = 1
+    powers = [prd]
+
+    for k in range(n):
+        st.markdown(f'{a}^{{{k}}} mod {n}={prd}')
+        prd = (prd*a) % n
+
+        powers.append(prd)
+
 
 
 st.markdown(
