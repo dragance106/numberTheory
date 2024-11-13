@@ -9,7 +9,6 @@ st.markdown(
     that are relatively prime to $n$.
     
     This function can be computed according to the formula
-    $$\phi(n) = n \prod_{p\mbox{ is prime, }p|n} \left(1-\frac{1}{p}\right).$$
     
     It is multiplicative, 
     meaning that $\phi(mn)=\phi(m)\phi(n)$ for relatively prime $m$ and $n$.
