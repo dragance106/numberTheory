@@ -6,13 +6,14 @@ def power_list(a, n):
     powers = []
 
     for k in range(n):
+        st.markdown(f'${a}^{{{k}}}$ mod {n} = {prd}')
+
         if prd in powers:
             l = powers.index(prd)
             st.markdown(f'The first repetition is ${a}^{{{k}}}={a}^{{{l}}}$ mod {n}')
             break
         else:
             powers.append(prd)
-            st.markdown(f'${a}^{{{k}}}$ mod {n} = {prd}')
 
         prd = (prd*a) % n
 
