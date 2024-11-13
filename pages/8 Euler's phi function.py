@@ -3,12 +3,17 @@ from functions import gcd
 
 
 def phi_list(n):
+    zn = []
     for a in range(1, n):
         d = gcd(a, n)
         if d > 1:
-            st.markdown(f'~~{d} is not in $Z_n^*$ since gcd({a}, {n})={d}>1~~')
+            st.markdown(f'{a} is NOT in $Z_n^*$ since gcd({a}, {n})={d}>1')
         else:
-            st.markdown(f'{d} is in $Z_n^*$')
+            st.markdown(f'{a} is in $Z_n^*$')
+            zn.append(a)
+
+    st.markdown(f'Elements of $Z_n^*$ are: {a}')
+    st.markdown(f'$\phi(n)=|Z_n^*|={len(zn)}')
 
 
 st.markdown(
