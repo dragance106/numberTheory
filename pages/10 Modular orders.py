@@ -37,7 +37,7 @@ def print_orders(sto, n):
             if k == fi:
                 p_roots.append(a)
 
-    lines = lines + f'\nPrimitive roots: {p_roots}'
+    lines = lines + f'\n\nPrimitive roots: {p_roots}'
     sto.markdown(lines)
 
 
