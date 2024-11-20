@@ -11,7 +11,7 @@ def print_orders(sto, n):
     for k in range(1, fi+1):
         lines = lines + f'{k} | '
     lines = lines + ' Order |\n| '
-    for k in range(1, fi+2):
+    for k in range(fi+3):
         lines = lines + "--- | "
 
     for a in range(1, n):
