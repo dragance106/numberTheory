@@ -6,7 +6,7 @@ import math
 
 
 def gcd(a, b):
-    if b == 0:
+    if b == 1:
         return a
     else:
         return gcd(b, a % b)
