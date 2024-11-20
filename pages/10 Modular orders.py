@@ -27,7 +27,7 @@ def print_orders(sto, n):
                 lines = lines + f' {b} | '
 
             # empty cells from the order to phi(n)
-            lines = lines + "--- | "*(fi-k)
+            lines = lines + " | "*(fi-k)
 
             # report the order
             lines = lines + f' {k} |'
