@@ -50,7 +50,6 @@ st.markdown(
     $a$ is relatively prime to $n$ ($a\in Z^*_n$) 
     and 
     the smallest $k$ such that $a^k=1$ modulo $n$ is equal to $\phi(n)$.
-     
     Then the powers $a$, $a^2$, ..., $a^{\phi(n)}=1$ modulo $n$
     necessarily range through all elements of $Z^*_n$ in some order.
     
@@ -60,7 +59,6 @@ st.markdown(
 
     Note that a primitive root exists only if $n$ is either 2 or 4
     or $p^e$ or $2p^e$ for some odd prime $p$ and positive integer $e$.
-    
     You may use [Modular orders](https://aasu-number-theory.streamlit.app/Modular_orders) page
     to see the list of all primitive roots for such values of *n*
     (at the bottom of that page). 
