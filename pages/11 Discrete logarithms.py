@@ -3,41 +3,28 @@ from functions import gcd, phi
 
 
 def print_logarithms(sto, n, a):
-    fi = phi(n)
-    p_roots = []
+    # determine discrete logarithms
+    logs = {1: 0}
 
-    # create two heading rows
-    lines = "| Element | "
-    for k in range(1, fi + 1):
-        lines = lines + f'{k} | '
-    lines = lines + ' Order |\n| '
-    for k in range(fi + 2):
-        lines = lines + "--- | "
+    k = 1
+    b = a
+    while b != 1:
+        logs[b] = k
 
-    for a in range(1, n):
-        if gcd(a, n) == 1:
-            k = 1
-            b = a
-            lines = lines + f'\n| {a} | {b} | '
+        k = k+1
+        b = (b*a) % n
 
-            # consecutive powers until 1 is reached again
-            while b != 1:
-                k = k + 1
-                b = (b * a) % n
-                lines = lines + f' {b} | '
+    # was it a primitive root?
+    if k != phi(n):
+        sto.markdown(f'{a} is not a primitive root modulo {n}!'
+                     f'Go to [Modular orders](https://aasu-number-theory.streamlit.app/Modular_orders) page...')
+        return
 
-            # empty cells from the order to phi(n)
-            lines = lines + " | " * (fi - k)
-
-            # report the order
-            lines = lines + f' {k} |'
-
-            # after the table there will be
-            # the list of all primitive roots seen along
-            if k == fi:
-                p_roots.append(a)
-
-    lines = lines + f'\n\nPrimitive roots: {p_roots}'
+    # create the output table
+    lines = "| $b$ | $ind_{n,a}(b)$ \n| --- | --- |\n"
+    for b in range(1, n):
+        if gcd(b, n) == 1:
+            lines = lines + f'| {b} | {logs[b]} |\n'
     sto.markdown(lines)
 
 
@@ -64,8 +51,8 @@ st.markdown(
     (at the bottom of that page). 
     """)
 
-st.number_input("Input the number $n$", key='n', value=7)
-st.number_input("Input the primitive root $a$", key='a', value=2)
+st.number_input("Input the number $n$", key='n', value=17)
+st.number_input("Input the primitive root $a$", key='a', value=3)
 
 no = int(st.session_state.n)
 ao = int(st.session_state.a)
