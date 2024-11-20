@@ -23,8 +23,8 @@ def print_orders(sto, n):
             # consecutive powers until 1 is reached again
             while b != 1:
                 k = k+1
-                b = b*a
-                lines = lines + "\n| " + str(b) + " | "         # f'\n| {b} | '
+                b = (b*a) % n
+                lines = lines + f'\n| {b} | '
 
             # empty cells from the order to phi(n)
             lines = lines + "--- | "*(fi-k)
