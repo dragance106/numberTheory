@@ -16,7 +16,7 @@ def print_logarithms(sto, n, a):
 
     # was it a primitive root?
     if k != phi(n):
-        sto.markdown(f'{a} is not a primitive root modulo {n}!'
+        sto.markdown(f'{a} is not a primitive root modulo {n}!\n'
                      f'Go to [Modular orders](https://aasu-number-theory.streamlit.app/Modular_orders) page...')
         return
 
