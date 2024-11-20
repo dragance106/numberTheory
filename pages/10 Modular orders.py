@@ -24,7 +24,7 @@ def print_orders(sto, n):
             while b != 1:
                 k = k+1
                 b = (b*a) % n
-                lines = lines + f'\n{b} | '
+                lines = lines + f' {b} | '
 
             # empty cells from the order to phi(n)
             lines = lines + "--- | "*(fi-k)
