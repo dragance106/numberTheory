@@ -53,6 +53,8 @@ st.markdown(
     then $a$ is a *primitive root* mod $n$,
     since its powers will represent
     all elements of $Z_n^*$ in some order.
+    
+    ** These computations are very extensive - input only relatively small numbers! **
     """)
 
 st.number_input("Input the number $n$", key='n', value=7)
