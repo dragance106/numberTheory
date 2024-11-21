@@ -5,6 +5,37 @@ These do not use streamlit.
 import math
 
 
+def prime(n):
+    up_to = int(math.floor(math.sqrt(n)))
+    for p in range(2, up_to+1):
+        if n % p == 0:      # n is divisible by p without a remainder
+            return False
+
+    return True
+
+
+def sieve(n):
+    if n < 2:
+        return []
+
+    the_list = list(range(2, n+1))      # the list of all numbers from 2 to n
+    first_unmarked = 0                  # the index of the first unmarked entry
+
+    while the_list[first_unmarked] <= int(math.floor(math.sqrt(n))):
+        # mark all multiples of the first unmarked entry
+        for i in range(first_unmarked+1, len(the_list)):
+            if the_list[i] % the_list[first_unmarked] == 0:
+                the_list[i] = 0
+
+        # find the next unmarked entry
+        j = first_unmarked+1
+        while the_list[j] == 0:     # this entry is already marked
+            j = j+1
+        first_unmarked = j
+
+    return [p for p in the_list if p > 0]
+
+
 def gcd(a, b):
     if b == 0:
         return a
@@ -29,28 +60,6 @@ def multiplicative_inverse(a, n):
         return 0
     else:
         return x0
-
-
-def sieve(n):
-    if n<2:
-        return []
-
-    the_list = list(range(2, n+1))      # the list of all numbers from 2 to n
-    first_unmarked = 0                  # the index of the first unmarked entry
-
-    while the_list[first_unmarked] <= int(math.floor(math.sqrt(n))):
-        # mark all multiples of the first unmarked entry
-        for i in range(first_unmarked+1, len(the_list)):
-            if the_list[i] % the_list[first_unmarked] == 0:
-                the_list[i] = 0
-
-        # find the next unmarked entry
-        j = first_unmarked+1
-        while the_list[j] == 0:     # this entry is already marked
-            j = j+1
-        first_unmarked = j
-
-    return [p for p in the_list if p > 0]
 
 
 def phi(n):
