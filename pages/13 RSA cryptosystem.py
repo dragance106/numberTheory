@@ -22,9 +22,9 @@ st.markdown(
     It is assumed that a message consists of a sequence of numbers (modulo $n$),
     each of which is encrypted and decrypted separately.
     Number $M$ is encrypted by $M'$ where
-    $$M' = P(M) = M^e \mathrm{ mod }n,$$
+    $$M' = P(M) = M^e \mod n,$$
     while it is decrypted back to $M$ using 
-    $$M = S(M') = M'^d \mathrm{ mod }n.$$
+    $$M = S(M') = M'^d \mod n.$$
         
     After the user enters $p$, $q$ and $e$,
     the key $(e,n)$ is made public, 
