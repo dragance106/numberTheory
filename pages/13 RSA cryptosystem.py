@@ -36,7 +36,8 @@ def decrypt_fragment(d, n):
     m2 = int(st.session_state.m2)
     st.markdown(f"Decrypted/original value will be equal to {m2}^{d} mod {n}:")
     m1, line1, line2, line3 = fast_exp(m2, d, n)
-    st.markdown(line1+'\n'+line2+'\n'+line3+'\n')
+    table = '| exp '+line1+'\n| --- '+line2+f'\n| {m1}^exp '+line3+'\n'
+    st.markdown(table)
     st.markdown(f'Original number is {m1}.')
 
 
