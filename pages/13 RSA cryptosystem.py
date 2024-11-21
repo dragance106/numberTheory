@@ -45,8 +45,8 @@ fio = phi(no)
 if prime(po) is False:
     st.markdown(f"$p$={po} is not a prime")
 elif prime(qo) is False:
-    st.markdown("$q$={qo} is not a prime")
+    st.markdown(f"$q$={qo} is not a prime")
 elif gcd(eo, fio) > 1:
-    st.markdown("$e$={eo} is not relatively prime to $\phi(n)$={fio}")
+    st.markdown(f"$e$={eo} is not relatively prime to $\phi(n)$={fio}")
 else:
     st.markdown("Be right there!")
