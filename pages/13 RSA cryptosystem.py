@@ -13,7 +13,7 @@ st.markdown(
     especially when $n$ has only two large prime factors $p$ and $q$.
 
     RSA works as follows.
-    For different primes $p\neq q$, let $n=pq$, so that $\phi(n)=(p-1)(q-1)$.
+    For different primes $p$ and $q$, let $n=pq$, so that $\phi(n)=(p-1)(q-1)$.
     Let $e$ be a small odd integer that is relatively prime to $\phi(n)$,
     and let $d$ be the multiplicative inverse of $e$ modulo $\phi(n)$.
     The pair $(e,n)$ forms the *public key*, and
