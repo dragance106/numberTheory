@@ -2,6 +2,20 @@ import streamlit as st
 from functions import gcd, phi, prime
 
 
+@st.fragment
+def encrypt_fragment():
+    st.number_input("Input number to be encrypted", key='m1', value=100)
+    mo = int(st.session_state.m1)
+    st.markdown(f"You want to encrypt number {mo}")
+
+
+@st.fragment
+def decrypt_fragment():
+    st.number_input("Input number to be decrypted", key='m2', value=258)
+    mo = int(st.session_state.m2)
+    st.markdown(f"You want to decrypt number {mo}")
+
+
 st.markdown(
     """
     # RSA cryptosystem
@@ -30,8 +44,8 @@ st.markdown(
     $$M = S(M') = (M')^d \mod n.$$
         
     After the user enters $p$, $q$ and $e$,
-    the key $(e,n)$ is made public, 
-    while the key $(d,n)$ and the values $p$, $q$ and $\phi(n)$ are kept secret.
+    the key $(e,n)$ is made *public*, 
+    while the key $(d,n)$ and the values $p$, $q$ and $\phi(n)$ are kept *secret*.
     """)
 
 st.number_input("Input prime $p$", key='p', value=17)
@@ -52,4 +66,5 @@ elif prime(qo) is False:
 elif gcd(eo, fio) > 1:
     st.markdown(f"$e$={eo} is not relatively prime to $\phi(n)$={fio}")
 else:
-    st.markdown("Be right there!")
+    encrypt_fragment()
+    decrypt_fragment()
