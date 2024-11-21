@@ -1,5 +1,5 @@
 import streamlit as st
-from functions import gcd, phi, prime
+import functions as fun
 
 
 @st.fragment
@@ -57,14 +57,20 @@ qo = int(st.session_state.q)
 eo = int(st.session_state.e)
 
 no = po * qo
-fio = phi(no)
+fio = fun.phi(no)
 
-if prime(po) is False:
+if fun.prime(po) is False:
     st.markdown(f"$p$={po} is not a prime")
-elif prime(qo) is False:
+elif fun.prime(qo) is False:
     st.markdown(f"$q$={qo} is not a prime")
-elif gcd(eo, fio) > 1:
+elif fun.gcd(eo, fio) > 1:
     st.markdown(f"$e$={eo} is not relatively prime to $\phi(n)$={fio}")
 else:
+    st.markdown(f'$n=pq$={no}')
+    st.markdown(f'$\phi(n)=(p-1)(q-1)$={fio}')
+
+    do = fun.multiplicative_inverse(eo, fio)
+    st.markdown(f'Secret exponent for decryption is $d$={do}')
+
     encrypt_fragment()
     decrypt_fragment()
