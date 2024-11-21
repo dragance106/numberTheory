@@ -59,7 +59,7 @@ def multiplicative_inverse(a, n):
     if d != 1:
         return 0
     else:
-        return x0
+        return x0 % n
 
 
 def phi(n):
