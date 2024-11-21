@@ -2,18 +2,38 @@ import streamlit as st
 import functions as fun
 
 
+def fast_exp(a, b, n):
+    if b == 1:
+        st.write(f'{a}^1 = {a%n} (mod {n})')
+        return a % n
+    elif b % 2 == 1:        # b is odd
+        st.write(f'*b*: {b} &xrarr; {b-1}')
+        r = fast_exp(a, b-1, n)
+        st.write(f'{a}^{b} = {a}&centerdot;{a}^{b-1} = {a}&centerdot;{r} = {(a*r)%n} (mod {n})')
+        return (a*r) % n
+    else:                   # b is even
+        st.write(f'*b*: {b} &xrarr; {b//2}')
+        r = fast_exp(a, b//2, n)
+        st.write(f'{a}^{b} = ({a}^{b//2})^2 = {r}^2 = {(r*r)%n} (mod {n})')
+        return (r*r) % n
+
+
 @st.fragment
-def encrypt_fragment():
+def encrypt_fragment(e, n):
     st.number_input("Input number to be encrypted", key='m1', value=100)
-    mo = int(st.session_state.m1)
-    st.markdown(f"You want to encrypt number {mo}")
+    m1 = int(st.session_state.m1)
+    st.markdown(f"Encrypted value will be equal to {m1}^{e} mod {n}:")
+    m2 = fast_exp(m1, e, n)
+    st.markdown(f'Encrypted number is {m2}.')
 
 
 @st.fragment
-def decrypt_fragment():
+def decrypt_fragment(d, n):
     st.number_input("Input number to be decrypted", key='m2', value=258)
-    mo = int(st.session_state.m2)
-    st.markdown(f"You want to decrypt number {mo}")
+    m2 = int(st.session_state.m2)
+    st.markdown(f"Decrypted/original value will be equal to {m2}^{d} mod {n}:")
+    m1 = fast_exp(m2, d, n)
+    st.markdown(f'Original number is {m1}.')
 
 
 st.markdown(
@@ -72,5 +92,5 @@ else:
     do = fun.multiplicative_inverse(eo, fio)
     st.markdown(f'Secret exponent for decryption is $d$={do}')
 
-    encrypt_fragment()
-    decrypt_fragment()
+    encrypt_fragment(eo, no)
+    decrypt_fragment(do, no)
