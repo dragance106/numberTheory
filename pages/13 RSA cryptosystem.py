@@ -29,7 +29,7 @@ def encrypt_fragment(e, n):
 
 @st.fragment
 def decrypt_fragment(d, n):
-    st.number_input("Input number to be decrypted", key='m2', value=258)
+    st.number_input("Input number to be decrypted", key='m2', value=213)
     m2 = int(st.session_state.m2)
     st.markdown(f"Decrypted/original value will be equal to {m2}^{d} mod {n}:")
     m1 = fast_exp(m2, d, n)
