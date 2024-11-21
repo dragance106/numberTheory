@@ -22,14 +22,14 @@ def fast_exp2(a, b, n):
     if b == 1:
         return a % n, '| 1 |', '| --- |', f'| {a%n} |'
     elif b % 2 == 1:        # b is odd
-        r, line1, line2, line3 = fast_exp(a, b-1, n)
+        r, line1, line2, line3 = fast_exp2(a, b-1, n)
         line1 = f'| {b} ' + line1
         line2 = '| --- ' + line2
         line3 = f'| {(a*r)%n} ' + line3
         return (a*r) % n, line1, line2, line3
     else:                   # b is even
         st.write(f'*b*: {b} &xrarr; {b//2}')
-        r, line1, line2, line3 = fast_exp(a, b//2, n)
+        r, line1, line2, line3 = fast_exp2(a, b//2, n)
         line1 = f'| {b} ' + line1
         line2 = '| --- ' + line2
         line3 = f'| {(r*r)%n} ' + line3
