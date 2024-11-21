@@ -4,32 +4,15 @@ import functions as fun
 
 def fast_exp(a, b, n):
     if b == 1:
-        st.write(f'{a}^1 = {a%n} (mod {n})')
-        return a % n
-    elif b % 2 == 1:        # b is odd
-        st.write(f'*b*: {b} &xrarr; {b-1}')
-        r = fast_exp(a, b-1, n)
-        st.write(f'{a}^{b} = {a}&centerdot;{a}^{b-1} = {a}&centerdot;{r} = {(a*r)%n} (mod {n})')
-        return (a*r) % n
-    else:                   # b is even
-        st.write(f'*b*: {b} &xrarr; {b//2}')
-        r = fast_exp(a, b//2, n)
-        st.write(f'{a}^{b} = ({a}^{b//2})^2 = {r}^2 = {(r*r)%n} (mod {n})')
-        return (r*r) % n
-
-
-def fast_exp2(a, b, n):
-    if b == 1:
         return a % n, '| 1 |', '| --- |', f'| {a%n} |'
     elif b % 2 == 1:        # b is odd
-        r, line1, line2, line3 = fast_exp2(a, b-1, n)
+        r, line1, line2, line3 = fast_exp(a, b-1, n)
         line1 = f'| {b} ' + line1
         line2 = '| --- ' + line2
         line3 = f'| {(a*r)%n} ' + line3
         return (a*r) % n, line1, line2, line3
     else:                   # b is even
-        st.write(f'*b*: {b} &xrarr; {b//2}')
-        r, line1, line2, line3 = fast_exp2(a, b//2, n)
+        r, line1, line2, line3 = fast_exp(a, b//2, n)
         line1 = f'| {b} ' + line1
         line2 = '| --- ' + line2
         line3 = f'| {(r*r)%n} ' + line3
@@ -41,7 +24,7 @@ def encrypt_fragment(e, n):
     st.number_input("Input number to be encrypted", key='m1', value=100)
     m1 = int(st.session_state.m1)
     st.markdown(f"Encrypted value will be equal to {m1}^{e} mod {n}:")
-    m2, line1, line2, line3 = fast_exp2(m1, e, n)
+    m2, line1, line2, line3 = fast_exp(m1, e, n)
     table = '| exp '+line1+'\n| --- '+line2+f'\n| {m1}^exp '+line3+'\n'
     st.markdown(table)
     st.markdown(f'Encrypted number is {m2}.')
@@ -52,7 +35,7 @@ def decrypt_fragment(d, n):
     st.number_input("Input number to be decrypted", key='m2', value=213)
     m2 = int(st.session_state.m2)
     st.markdown(f"Decrypted/original value will be equal to {m2}^{d} mod {n}:")
-    m1, line1, line2, line3 = fast_exp2(m2, d, n)
+    m1, line1, line2, line3 = fast_exp(m2, d, n)
     st.markdown(line1+'\n'+line2+'\n'+line3+'\n')
     st.markdown(f'Original number is {m1}.')
 
