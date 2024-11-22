@@ -3,18 +3,35 @@ import streamlit as st
 
 def fast_exp(a, b, n):
     if b == 1:
-        st.write(f'{a}^1 = {a%n} (mod {n})')
-        return a % n
+        return a % n, '| 1 |', '| --- |', f'| {a%n} |'
     elif b % 2 == 1:        # b is odd
-        st.write(f'*b*: {b} &xrarr; {b-1}')
-        r = fast_exp(a, b-1, n)
-        st.write(f'{a}^{b} = {a}&centerdot;{a}^{b-1} = {a}&centerdot;{r} = {(a*r)%n} (mod {n})')
-        return (a*r) % n
+        r, line1, line2, line3 = fast_exp(a, b-1, n)
+        line1 = f'| {b} ' + line1
+        line2 = '| --- ' + line2
+        line3 = f'| {(a*r)%n} ' + line3
+        return (a*r) % n, line1, line2, line3
     else:                   # b is even
-        st.write(f'*b*: {b} &xrarr; {b//2}')
-        r = fast_exp(a, b//2, n)
-        st.write(f'{a}^{b} = ({a}^{b//2})^2 = {r}^2 = {(r*r)%n} (mod {n})')
-        return (r*r) % n
+        r, line1, line2, line3 = fast_exp(a, b//2, n)
+        line1 = f'| {b} ' + line1
+        line2 = '| --- ' + line2
+        line3 = f'| {(r*r)%n} ' + line3
+        return (r*r) % n, line1, line2, line3
+
+
+# def fast_exp(a, b, n):
+#     if b == 1:
+#         st.write(f'{a}^1 = {a%n} (mod {n})')
+#         return a % n
+#     elif b % 2 == 1:        # b is odd
+#         st.write(f'*b*: {b} &xrarr; {b-1}')
+#         r = fast_exp(a, b-1, n)
+#         st.write(f'{a}^{b} = {a}&centerdot;{a}^{b-1} = {a}&centerdot;{r} = {(a*r)%n} (mod {n})')
+#         return (a*r) % n
+#     else:                   # b is even
+#         st.write(f'*b*: {b} &xrarr; {b//2}')
+#         r = fast_exp(a, b//2, n)
+#         st.write(f'{a}^{b} = ({a}^{b//2})^2 = {r}^2 = {(r*r)%n} (mod {n})')
+#         return (r*r) % n
 
 
 st.markdown(
@@ -39,5 +56,6 @@ ao = int(st.session_state.a)
 bo = int(st.session_state.b)
 no = int(st.session_state.n)
 
-ro = fast_exp(ao, bo, no)
-
+ro, line1, line2, line3 = fast_exp(ao, bo, no)
+table = '| exp ' + line1 + '\n| --- ' + line2 + f'\n| {ao}^exp mod {no} ' + line3 + '\n'
+st.markdown(table)
