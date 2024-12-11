@@ -10,7 +10,7 @@ def miller_rabin(n, s):
     while u%2 == 0:
         t=t+1
         u=u//2
-    st.write(f'$${n}=2^{t}\cdot{u}$$')
+    st.write(f'$${n-1}=2^{t}\cdot{u}$$')
 
     for _ in range(s):
         a = np.random.randint(low=2, high=n-1)
@@ -22,7 +22,7 @@ def miller_rabin(n, s):
 
 
 def witness(a, n, t, u):
-    st.write(f'Testing $a^{{{n-1}}} \mod n\dots$')
+    st.write(f'Testing $a^{{n-1}} \mod n$ for $a={a}\dots$')
     x = fun.fast_exp(a, u, n)
     for _ in range(t):
         y = (x*x) % n
