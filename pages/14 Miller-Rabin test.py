@@ -1,21 +1,25 @@
 import streamlit as st
+import functions as fun
+import numpy as np
 
 
-def fast_exp(a, b, n):
-    if b == 1:
-        return a % n, '| 1 |', '| --- |', f'| {a % n} |'
-    elif b % 2 == 1:  # b is odd
-        r, line1, line2, line3 = fast_exp(a, b - 1, n)
-        line1 = f'| {b} ' + line1
-        line2 = '| --- ' + line2
-        line3 = f'| {(a * r) % n} ' + line3
-        return (a * r) % n, line1, line2, line3
-    else:  # b is even
-        r, line1, line2, line3 = fast_exp(a, b // 2, n)
-        line1 = f'| {b} ' + line1
-        line2 = '| --- ' + line2
-        line3 = f'| {(r * r) % n} ' + line3
-        return (r * r) % n, line1, line2, line3
+def miller_rabin(n, s):
+    # determine t and u
+    t=0
+    u=n-1
+    while u%2 == 0:
+        t=t+1
+        u=u//2
+    st.write(f'$${n}=2^{t}\cdot{u}$$')
+
+    for _ in range(s):
+        a = np.random.randint(low=2, high=n-1)
+        if witness(a):
+            pass
+
+
+def witness(a):
+    return True
 
 
 st.markdown(
@@ -24,7 +28,7 @@ st.markdown(
 
     This algorithm checks whether the given number *n* is prime
     by checking whether it satisfies Fermat's theorem
-    for several random values of $a$ between 2 and $n-2$.
+    for $s$ random values of $a$ between 2 and $n-2$.
     If $a^{n-1}$ is not 1 modulo $n$ for any such value of $a$,
     then $n$ is not prime. 
     
@@ -49,14 +53,10 @@ st.markdown(
     and $n$ is not prime.
     """)
 
-st.number_input("Input the number *a*", key='a', value=2)
-st.number_input("Input the number *b*", key='b', value=1001)
-st.number_input("Input the number *n*", key='n', value=100)
+st.number_input("Input the number *n*", key='n', value=12345678901)
+st.number_input("Input the number *s*", key='s', value=10)
 
-ao = int(st.session_state.a)
-bo = int(st.session_state.b)
 no = int(st.session_state.n)
+so = int(st.session_state.s)
 
-ro, line1, line2, line3 = fast_exp(ao, bo, no)
-table = '| exp ' + line1 + '\n| --- ' + line2 + f'\n| {ao}^exp mod {no} ' + line3 + '\n'
-st.markdown(table)
+miller_rabin(no, so)
