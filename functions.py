@@ -83,3 +83,14 @@ def phi(n):
         phi_aux = phi_aux * (n_aux-1)
 
     return phi_aux
+
+
+def fast_exp(a, b, n):
+    if b == 1:
+        return a % n
+    elif b % 2 == 1:        # b is odd
+        r = fast_exp(a, b-1, n)
+        return (a*r) % n
+    else:                   # b is even
+        r = fast_exp(a, b//2, n)
+        return (r*r) % n
