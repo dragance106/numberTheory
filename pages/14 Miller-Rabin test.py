@@ -10,7 +10,7 @@ def miller_rabin(n, s):
     while u%2 == 0:
         t=t+1
         u=u//2
-    st.write(f'$${n-1}=2^{t}\cdot{u}$$')
+    st.write(f'$$n-1={n-1}=2^{t}\cdot{u}$$')
 
     for _ in range(s):
         a = np.random.randint(low=2, high=n-1)
@@ -35,7 +35,7 @@ def witness(a, n, t, u):
 
     if x!=1:
         st.write(f'Fermat\'s theorem not satisfied:')
-        st.write(f'${a}^{{{n-1}}}={x}$ modulo $n$.')
+        st.write(f'${a}^{{{n-1}}}={x}\neq 1$ modulo $n$.')
         st.write(f'Hence ${n}$ is composite.')
         return True
 
