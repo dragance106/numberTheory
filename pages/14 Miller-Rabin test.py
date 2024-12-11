@@ -22,7 +22,7 @@ def miller_rabin(n, s):
 
 
 def witness(a, n, t, u):
-    st.write(f'Testing $a^{n-1} \mod n\dots$')
+    st.write(f'Testing $a^{{{n-1}}} \mod n\dots$')
     x = fun.fast_exp(a, u, n)
     for _ in range(t):
         y = (x*x) % n
