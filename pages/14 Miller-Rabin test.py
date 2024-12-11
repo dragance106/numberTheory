@@ -26,9 +26,9 @@ st.markdown(
     by checking whether it satisfies Fermat's theorem
     for several random values of $a$ between 2 and $n-2$.
     If $a^{n-1}$ is not 1 modulo $n$ for any such value of $a$,
-    then $n$ is composite. 
+    then $n$ is not prime. 
     
-    Additionally, the algorithm checks for non-existence of
+    Additionally, the algorithm checks the existence of
     non-trivial square roots of 1 modulo $n$ during modular exponentiation.
     Namely, it determines maximum $t$ and odd $u$ such that 
     
@@ -46,7 +46,7 @@ st.markdown(
     If it happens that one of these numbers is 1 modulo $n$,
     while the previous number is neither 1 nor $n-1$ modulo $n$,
     then the previous number is a non-trivial square root of 1 modulo $n$,
-    and $n$ is composite.
+    and $n$ is not prime.
     """)
 
 st.number_input("Input the number *a*", key='a', value=2)
