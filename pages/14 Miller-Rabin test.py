@@ -35,7 +35,7 @@ def witness(a, n, t, u):
 
     if x!=1:
         st.write(f'Fermat\'s theorem not satisfied:')
-        st.write(f'${a}^{{{n-1}}}={x}\neq 1$ modulo $n$.')
+        st.write(f'${a}^{{{n-1}}}={x} \\neq 1$ modulo $n$.')
         st.write(f'Hence ${n}$ is composite.')
         return True
 
