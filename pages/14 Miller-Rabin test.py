@@ -27,7 +27,7 @@ def witness(a, n, t, u):
     for _ in range(t):
         y = (x*x) % n
         if y==1 and not (x==1 or x==n-1):
-            st.write(f'Found a non-trivial square root of 1 during the modular exponentiation $a^{n-1} \mod n$:')
+            st.write(f'Found a non-trivial square root of 1 during the modular exponentiation $a^{{n-1}} \mod n$:')
             st.write(f'$x^2=1$ modulo for $x={x}$ modulo $n$.')
             st.write(f'Hence ${n}$ is composite.')
             return True
