@@ -39,6 +39,7 @@ def witness(a, n, t, u):
         st.write(f'Hence ${n}$ is composite.')
         return True
 
+    st.write(f'  Test passed: ${a}^{{{n-1}}}=1$ modulo $n$.')
     return False
 
 
