@@ -14,12 +14,32 @@ def miller_rabin(n, s):
 
     for _ in range(s):
         a = np.random.randint(low=2, high=n-1)
-        if witness(a):
-            pass
+        if witness(a, n, t, u):
+            return True
+
+    st.write(f'$n$ is likely to be prime...')
+    return False
 
 
-def witness(a):
-    return True
+def witness(a, n, t, u):
+    st.write(f'Testing $a^{n-1} \mod n\dots$')
+    x = fun.fast_exp(a, u, n)
+    for _ in range(t):
+        y = (x*x) % n
+        if y==1 and not (x==1 or x==n-1):
+            st.write(f'Found a non-trivial square root of 1 during the modular exponentiation $a^{n-1} \mod n$:')
+            st.write(f'$x^2=1$ modulo for $x={x}$ modulo $n$.')
+            st.write(f'Hence ${n}$ is composite.')
+            return True
+        x = y
+
+    if x!=1:
+        st.write(f'Fermat\'s theorem not satisfied:')
+        st.write(f'${a}^{n-1}={x}$ modulo $n$.')
+        st.write(f'Hence ${n}$ is composite.')
+        return True
+
+    return False
 
 
 st.markdown(
