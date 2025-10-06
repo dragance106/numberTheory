@@ -42,6 +42,8 @@ st.markdown(
 # $$\\phi(n) = n \\prod_{\\substack{p\\mbox{ is prime, }\\p|n} \\left(1-\\frac1p\\right).$$
 
 st.number_input("Input the number $n$", key='n', value=10)
+st.button("Just do it")
+
 no = int(st.session_state.n)
 phi_list(no)
 

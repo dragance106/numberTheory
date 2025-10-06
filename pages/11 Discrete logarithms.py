@@ -53,6 +53,7 @@ st.markdown(
 
 st.number_input("Input the number $n$", key='n', value=17)
 st.number_input("Input the primitive root $a$", key='a', value=3)
+st.button("Just do it")
 
 no = int(st.session_state.n)
 ao = int(st.session_state.a)

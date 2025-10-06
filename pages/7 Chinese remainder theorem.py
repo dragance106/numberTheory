@@ -98,5 +98,7 @@ with c2:
     no_values = [st.number_input(f'*n*{i}', key=f'n{i}', value=1) for i in range(ko)]
     no_values = [int(n) for n in no_values]
 
+st.button("Just do it")
+
 chinese_remainder_theorem(st, ko, ao_values, no_values)
 

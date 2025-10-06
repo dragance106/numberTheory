@@ -48,6 +48,8 @@ st.markdown(
 
 st.number_input("Input the number $a$", key='a', value=3)
 st.number_input("Input the number $n$", key='n', value=7)
+st.button("Just do it")
+
 ao = int(st.session_state.a)
 no = int(st.session_state.n)
 power_list(ao, no)

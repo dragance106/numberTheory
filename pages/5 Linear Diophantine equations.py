@@ -66,6 +66,7 @@ st.markdown(
 st.number_input("Input the number *a*", key='a', value=30)
 st.number_input("Input the number *b*", key='b', value=24)
 st.number_input("Input the number *c*", key='c', value=3)
+st.button("Just do it")
 
 ao = int(st.session_state.a)
 bo = int(st.session_state.b)

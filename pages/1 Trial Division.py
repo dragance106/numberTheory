@@ -23,7 +23,7 @@ st.markdown(
     """)
 
 st.number_input("Input the number *n*", key='n', value=37)
-st.button("Do it")
+st.button("Just do it")
 
 n = int(st.session_state.n)
 

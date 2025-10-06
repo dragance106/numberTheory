@@ -43,6 +43,8 @@ st.markdown(
     """)
 
 st.number_input("Input the number *n*", key='n', value=10)
+st.button("Just do it")
+
 n = int(st.session_state.n)
 primes = sieve(n)
 st.write("Primes up to *n* are: " + str(primes))

@@ -76,6 +76,7 @@ st.markdown(
 
 st.number_input("Input the number *n*", key='n', value=12345678901)
 st.number_input("Input the number *s*", key='s', value=10)
+st.button("Just do it")
 
 no = int(st.session_state.n)
 so = int(st.session_state.s)

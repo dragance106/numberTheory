@@ -58,6 +58,8 @@ st.markdown(
     """)
 
 st.number_input("Input the number $n$", key='n', value=7)
+st.button("Just do it")
+
 no = int(st.session_state.n)
 
 print_orders(st, no)

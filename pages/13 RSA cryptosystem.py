@@ -76,6 +76,7 @@ st.markdown(
 st.number_input("Input prime $p$", key='p', value=17)
 st.number_input("Input prime $q$", key='q', value=23)
 st.number_input("Input public exponent $e$", key='e', value=3)
+st.button("Just do it")
 
 po = int(st.session_state.p)
 qo = int(st.session_state.q)
