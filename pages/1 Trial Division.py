@@ -23,8 +23,6 @@ st.markdown(
     """)
 
 st.number_input("Input the number *n*", key='n', value=37)
-st.button("Do it", on_click=st.rerun())
-
 n = int(st.session_state.n)
 
 if trial_division(n):
@@ -32,4 +30,4 @@ if trial_division(n):
 else:
     st.write('* NOT PRIME!')
 
-
+st.button("Do it", on_click=st.rerun())
