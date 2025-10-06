@@ -22,8 +22,9 @@ st.markdown(
     whether it is prime by dividing *n* with all integers not exceeding its square root.
     """)
 
-st.button("Do it")
 st.number_input("Input the number *n*", key='n', value=37)
+st.button("Do it")
+
 n = int(st.session_state.n)
 
 if trial_division(n):
