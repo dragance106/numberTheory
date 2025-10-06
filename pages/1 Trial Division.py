@@ -2,10 +2,6 @@ import streamlit as st
 import math
 
 
-def refresh():
-    st.experimental_rerun()
-
-
 def trial_division(n):
     up_to = int(math.floor(math.sqrt(n)))
     for p in range(2, up_to+1):
@@ -27,7 +23,7 @@ st.markdown(
     """)
 
 st.number_input("Input the number *n*", key='n', value=37)
-st.button("Do it", on_click=refresh())
+st.button("Do it", on_click=st.rerun())
 
 n = int(st.session_state.n)
 
