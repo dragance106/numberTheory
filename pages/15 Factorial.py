@@ -8,7 +8,7 @@ def factorial(n):
     trailing_zeros = 0
     g = f
     while g % 10 == 0:
-        trailing_zeros = trailing_zeros + 1
+        trailing_zeros += 1
         g = g//10
 
     return f, trailing_zeros
@@ -28,4 +28,4 @@ st.button('Compute factorial')
 n=int(st.session_state.n)
 f, t = factorial(n)
 st.write(f'The factorial of {n} is {f}.')
-st.write(f'The factorial of {n} has {trailing_zeros} trailing zeros.')
+st.write(f'The factorial of {n} has {t} trailing zeros.')
