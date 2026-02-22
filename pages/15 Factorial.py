@@ -18,3 +18,10 @@ for i in range(1, n + 1):
     f *= i
 
 st.write(f'{n}! = {f}')
+
+trailing_zeros = 0
+while f%10==0:
+    trailing_zeros += 1
+
+st.write()
+st.write(f'It ends with {trailing_zeros} trailing zeros.')
