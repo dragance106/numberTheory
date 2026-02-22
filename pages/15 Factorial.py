@@ -1,5 +1,18 @@
 import streamlit as st
 
+def factorial(n):
+    f = 1
+    for i in range(1, n + 1):
+        f *= i
+
+    trailing_zeros = 0
+    g = f
+    while g % 10 == 0:
+        trailing_zeros = trailing_zeros + 1
+        g = g//10
+
+    return f, trailing_zeros
+
 st.markdown(
     """
     # Factorial and trailing zeros
@@ -13,13 +26,6 @@ st.number_input('Input the number *n*', key='n', value=10)
 st.button('Compute factorial')
 
 n=int(st.session_state.n)
-
-f=1
-for i in range(1,n+1):
-    f*=i
+f, t = factorial(n)
 st.write(f'The factorial of {n} is {f}.')
-
-trailing_zeros=0
-while f%10==0:
-    trailing_zeros=trailing_zeros+1
 st.write(f'The factorial of {n} has {trailing_zeros} trailing zeros.')
